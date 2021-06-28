@@ -1,0 +1,22 @@
+{
+  "name": "opt-use-multi-variant-hook",
+  "version": "0.1.0",
+  "description": "optimize usemultivariant hook",
+  "main": "index.js",
+  "scripts": {
+    "test": "exit 0"
+  },
+  "keywords": [
+    "optimize",
+    "usemultivariant",
+    "react",
+    "hook",
+    "multivariant",
+    "test"
+  ],
+  "peerDependencies": {
+    "react": "^17.0.2"
+  },
+  "author": "Matheus Freire Rabelo",
+  "license": "MIT"
+}

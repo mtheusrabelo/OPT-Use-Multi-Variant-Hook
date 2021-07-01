@@ -1,19 +1,18 @@
-import { useState, useEffect, useCallback } from "react";
 
-export const useMultiVariant = (experiment) => {
-  const [variant, setVariant] = useState(null);
+export const useMultiVariant = (experimentId, sections) => {
+  let exp = `${experimentId}.`;
+  const variant = [];
 
-  const handleMultiVariant = useCallback((event) => {
-    setVariant(event.detail());
-  });
+  for (let i = 0; i < sections.length; i++) {
+    variationId = Math.round(Math.random() * sections[i]);
+    variant.push(variationId);
+    exp += `${variationId}-`;
+  }
 
-  useEffect(() => {
-    window.addEventListener(experiment, handleMultiVariant);
+  // remove lasting -
+  exp = exp.slice(0, -1);
 
-    return () => {
-      window.removeEventListener(experiment, handleMultiVariant);
-    };
-  }, [experiment, handleMultiVariant]);
+  window.ga('set', 'exp', exp);
 
   return variant;
 };
